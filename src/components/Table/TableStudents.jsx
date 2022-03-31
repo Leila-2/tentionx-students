@@ -2,7 +2,7 @@ import { v4 } from "uuid";
 import { useState } from "react";
 import SortBtn from "../../svg/SortBtn";
 import Arrows from "../../svg/Arrows";
-import { Table } from "./Table.styled";
+import { Table, Score } from "./Table.styled";
 
 export default function TableStudents({ students }) {
   const [sort, setSort] = useState(false);
@@ -34,22 +34,22 @@ export default function TableStudents({ students }) {
             <input type="checkbox" name="checkall" onClick={chengeCheckbox} />
           </th>
           <th>
-            <p>Name</p>
+            <span>Name</span>
             <button onClick={handleClick}>
               <SortBtn />
             </button>
           </th>
           <th>
-            <p>ID</p>
+            <span>ID</span>
             <Arrows />
           </th>
           <th>Class</th>
           <th>
-            <p> Av.Score, %</p>
+            <span> Av.Score, %</span>
             <Arrows />
           </th>
           <th>
-            <p>Av.Speed</p>
+            <span>Av.Speed</span>
             <Arrows />
           </th>
           <th>Parents</th>
@@ -62,10 +62,9 @@ export default function TableStudents({ students }) {
               <input type="checkbox" name="check" onClick={chengeCheckbox} />
             </td>
             <td>{student.name}</td>
-            <td></td>
             <td>{student.id}</td>
             <td>{student.class}</td>
-            <td>{student.score}</td>
+            <Score scoreType={student.score}>{student.score}</Score>
             <td>{student.speed}</td>
             <td>{student.parents}</td>
           </tr>

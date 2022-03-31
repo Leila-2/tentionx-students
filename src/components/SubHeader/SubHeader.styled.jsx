@@ -22,6 +22,9 @@ export const List = styled.ul`
   padding: 4px 0px;
   margin-bottom: 8px;
 `;
+export const BtnItem = styled.span`
+  margin-right: 10px;
+`;
 
 export const Button = styled.button`
   display: flex;

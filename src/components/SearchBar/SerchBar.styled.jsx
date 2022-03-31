@@ -9,6 +9,7 @@ export const Title = styled.h1`
 export const Section = styled.div`
   display: flex;
   justify-content: space-around;
+  align-items:center;
   margin-bottom: 8px;
 `;
 export const SearchForm = styled.form`

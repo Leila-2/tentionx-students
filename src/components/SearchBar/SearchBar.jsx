@@ -27,7 +27,6 @@ export default function SearchBar({ data }) {
           <SearchIcon />
         </Btn>
       </SearchForm>
-
       <ExportBtn csvData={data} fileName="students" />
     </Section>
   );

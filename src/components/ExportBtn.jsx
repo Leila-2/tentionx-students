@@ -1,5 +1,6 @@
 import * as FileSaver from "file-saver";
 import * as XLSX from "xlsx";
+import ExpBtn from "../svg/ExpBtn";
 
 export const ExportBtn = ({ csvData, fileName }) => {
   const fileType =
@@ -13,6 +14,8 @@ export const ExportBtn = ({ csvData, fileName }) => {
     FileSaver.saveAs(data, fileName + fileExtension);
   };
   return (
-    <button onClick={(e) => exportToCSV(csvData, fileName)}>Export</button>
+    <button onClick={(e) => exportToCSV(csvData, fileName)}>
+      <ExpBtn />
+    </button>
   );
 };
