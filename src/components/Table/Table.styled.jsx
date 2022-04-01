@@ -33,23 +33,39 @@ export const Table = styled.table`
     background: #ffffff;
   }
 
-  /* Четные строки */
   tr:nth-child(even) {
     background: #f9f9f9;
   }
 `;
 
-export const Score = styled.td`
-  color: ${(props) => {
-    switch (props.scoreType) {
-      case "45%":
+export const Score = styled.span`
+  color: ${({ scoreType }) =>
+    scoreType < 50 + "%"
+      ? "#DB4437"
+      : scoreType < 80 + "%"
+      ? "#E2B534"
+      : scoreType < 90 + "%"
+      ? " #0F9D58"
+      : scoreType >= 90 + "%"
+      ? "#4285F4"
+      : ""};
+`;
+
+export const Speed = styled.span`
+  color: ${({ speedType }) => {
+    switch (speedType) {
+      case "As Expected":
         return "#0F9D58";
-      case "76%":
-        return "#fff";
-      case "98%":
-        return "#f0f0f0";
+      case "Above Expected":
+        return "#4285F4";
+      case "Below Expected":
+        return "#DB4437";
       default:
-        return "red";
+        return "Text Gray Main";
     }
   }};
+`;
+
+export const Checkbox = styled.input`
+  color: #777777;
 `;

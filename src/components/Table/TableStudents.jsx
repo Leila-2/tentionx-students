@@ -2,7 +2,7 @@ import { v4 } from "uuid";
 import { useState } from "react";
 import SortBtn from "../../svg/SortBtn";
 import Arrows from "../../svg/Arrows";
-import { Table, Score } from "./Table.styled";
+import { Table, Score, Speed, Checkbox } from "./Table.styled";
 
 export default function TableStudents({ students }) {
   const [sort, setSort] = useState(false);
@@ -31,7 +31,12 @@ export default function TableStudents({ students }) {
       <thead>
         <tr>
           <th>
-            <input type="checkbox" name="checkall" onClick={chengeCheckbox} />
+            <Checkbox
+              type="checkbox"
+              name="check"
+              checked={checked}
+              onChange={chengeCheckbox}
+            />
           </th>
           <th>
             <span>Name</span>
@@ -59,14 +64,22 @@ export default function TableStudents({ students }) {
         {stdnts.map((student) => (
           <tr key={v4()}>
             <td>
-              <input type="checkbox" name="check" onClick={chengeCheckbox} />
+              <Checkbox
+                type="checkbox"
+                name="check"
+                onChange={chengeCheckbox}
+              />
             </td>
             <td>{student.name}</td>
             <td>{student.id}</td>
             <td>{student.class}</td>
-            <Score scoreType={student.score}>{student.score}</Score>
-            <td>{student.speed}</td>
-            <td>{student.parents}</td>
+            <td>
+              <Score scoreType={student.score}>{student.score}</Score>
+            </td>
+            <td>
+              <Speed speedType={student.speed}>{student.speed}</Speed>
+            </td>
+            <td>{student.parents.join(", ")}</td>
           </tr>
         ))}
       </tbody>
