@@ -1,9 +1,16 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  padding: 0px 40px;
+`;
+
 export const Table = styled.table`
   border-collapse: collapse;
   width: 100%;
-
+  padding: 0px 40px;
+  tbody {
+    box-shadow: 0px 1px 4px rgba(60, 52, 135, 0.15);
+  }
   th {
     font-weight: 400;
     font-size: 14px;
@@ -26,15 +33,14 @@ export const Table = styled.table`
     color: #777777;
     padding: 14px;
   }
-  tr {
-    box-shadow: 0px 1px 4px rgba(60, 52, 135, 0.15);
-  }
+
   tr:nth-child(odd) {
     background: #ffffff;
   }
 
   tr:nth-child(even) {
     background: #f9f9f9;
+    box-shadow: 0px 1px 4px rgba(60, 52, 135, 0.15);
   }
 `;
 
