@@ -14,7 +14,6 @@ export const Table = styled.table`
   th {
     font-weight: 400;
     font-size: 14px;
-    line-height: 140%;
 
     color: #777777;
     opacity: 0.8;

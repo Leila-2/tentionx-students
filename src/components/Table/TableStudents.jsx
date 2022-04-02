@@ -13,13 +13,11 @@ export default function TableStudents({ students }) {
   const handleClick = () => {
     setSort(!sort);
   };
-
-  const chengeCheckbox = () => {
-    setChecked(!checked);
-  };
-
   const onDetailsClick = () => {
     setTest(!test);
+  };
+  const chengeCheckbox = () => {
+    setChecked(!checked);
   };
 
   const sorter = () => {
@@ -90,6 +88,7 @@ export default function TableStudents({ students }) {
                   <Speed speedType={student.speed}>{student.speed}</Speed>
                 </td>
                 <td>{student.parents.join(", ")}</td>
+
                 {test && (
                   <Details
                     tests={student.tests}
