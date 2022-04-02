@@ -2,21 +2,26 @@ import { v4 } from "uuid";
 import { useState } from "react";
 import SortBtn from "../../svg/SortBtn";
 import Arrows from "../../svg/Arrows";
+import Details from "../Details/Details";
 import { Table, Score, Speed, Checkbox, Container } from "./Table.styled";
 
 export default function TableStudents({ students }) {
   const [sort, setSort] = useState(false);
   const [checked, setChecked] = useState(false);
+  const [test, setTest] = useState(false);
 
-  console.log(students);
-  
   const handleClick = () => {
     setSort(!sort);
   };
 
-  function chengeCheckbox() {
+  const chengeCheckbox = () => {
     setChecked(!checked);
-  }
+  };
+
+  const onDetailsClick = () => {
+    setTest(!test);
+  };
+
   const sorter = () => {
     if (sort) {
       let newArr = [...students];
@@ -66,7 +71,7 @@ export default function TableStudents({ students }) {
         <tbody>
           {stdnts &&
             stdnts.map((student) => (
-              <tr key={v4()}>
+              <tr key={v4()} onClick={onDetailsClick}>
                 <td>
                   <Checkbox
                     type="checkbox"
@@ -85,6 +90,13 @@ export default function TableStudents({ students }) {
                   <Speed speedType={student.speed}>{student.speed}</Speed>
                 </td>
                 <td>{student.parents.join(", ")}</td>
+                {test && (
+                  <Details
+                    tests={student.tests}
+                    name={student.name}
+                    id={student.id}
+                  />
+                )}
               </tr>
             ))}
         </tbody>

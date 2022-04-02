@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import getStudents from "./services/api";
+import * as api from "./services/api";
 import { GlobalStyles } from "./components/GlobalStyles/GlobalStyles";
 import Header from "./components/Header/Header";
 import SubHeader from "./components/SubHeader/SubHeader";
@@ -28,12 +28,10 @@ function App() {
     setPage(page - 1);
   };
 
-  const test = getStudents(page, size);
-  console.log(test);
-
   useEffect(() => {
     (async () => {
-      await setStudents(getStudents(page, size));
+      const response = await api.getStudents(page, size);
+      setStudents(response);
     })();
   }, [page, size]);
 
@@ -45,6 +43,7 @@ function App() {
       <SearchBar data={students} />
       <TableStudents students={students} />
       <Pagination />
+
       <button onClick={forward}>вперед</button>
       <span>{page}</span>
       <button onClick={backward}> назад</button>

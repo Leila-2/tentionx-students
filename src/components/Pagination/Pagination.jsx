@@ -4,20 +4,19 @@ import ArrowForward from "../../svg/ArrowForward";
 export default function Pagination({ page }) {
   return (
     <div>
-      <p>
-        Rows per page:
-        <select>
-          <option>10</option>
-          <option>15</option>
-        </select>
-      </p>
-      <p>page:{page}</p>
-      <span>
+      <span>Rows per page:</span>
+      <select>
+        <option>10</option>
+        <option>15</option>
+      </select>
+
+      <span>page:{page}</span>
+      <button>
         <ArrowBack />
-      </span>
-      <span>
+      </button>
+      <button>
         <ArrowForward />
-      </span>
+      </button>
     </div>
   );
 }
